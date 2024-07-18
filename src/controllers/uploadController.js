@@ -8,20 +8,20 @@ const os = require("os");
 const path = require("path");
 const multer = require("multer");
 const cloudinary = require("../cloudinaryConfig");
-const picture = require("../models/picture");
+const Picture = require("../models/picture");
 
 // set up multer storage
 const multerStorage = multer.memoryStorage();
 
 // initialise multer upload
-
 const upload = multer({ storage: multerStorage });
 
 const uploadPicture = (req, res) => {
   upload.single("pic")(req, res, async (err) => {
+    // create a temporary file from buffer
     const tempFilePath = path.join(
       os.tmpdir(),
-      "$Data.now()-req.fileOriginalName"
+      `${Data.now() - req.file.originalName}`
     );
     fs.writeFileSync(tempFilePath, req.file.buffer);
 
@@ -38,6 +38,7 @@ const uploadPicture = (req, res) => {
       path: result.secure_url, // cloudinary url path
       cloudinaryPublicId: result.public_id, // cloudinary id
     });
+
     await uploadNewPicture.save();
 
     res
@@ -45,4 +46,5 @@ const uploadPicture = (req, res) => {
       .json({ message: "Image uploaded successfully", uploadNewPicture });
   });
 };
+
 module.exports = uploadPicture;

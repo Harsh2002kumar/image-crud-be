@@ -14,7 +14,7 @@ app.use(cors());
 app.use(express.json());
 
 //Routes
-//upload, delete, updatem, fetch
+//upload, delete, update, fetch
 
 app.use("/upload", uploadRoute);
 app.use("/update", updateRoute);
