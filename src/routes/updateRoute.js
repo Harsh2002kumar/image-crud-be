@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const updatePicture = require("../controllers/updateController").default;
+const updatePicture = require("../controllers/updateController");
 
 router.put("/", updatePicture);
 
