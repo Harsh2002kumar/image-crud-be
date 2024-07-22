@@ -21,7 +21,7 @@ const uploadPicture = (req, res) => {
     // create a temporary file from buffer
     const tempFilePath = path.join(
       os.tmpdir(),
-      `${Data.now() - req.file.originalName}`
+      `${Date.now() - req.file.originalName}`
     );
     fs.writeFileSync(tempFilePath, req.file.buffer);
 
