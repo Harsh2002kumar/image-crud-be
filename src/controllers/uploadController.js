@@ -21,7 +21,7 @@ const uploadPicture = (req, res) => {
     // create a temporary file from buffer
     const tempFilePath = path.join(
       os.tmpdir(),
-      `${Date.now() - req.file.originalName}`
+      `${Date.now() - req.file.originalname}`
     );
     fs.writeFileSync(tempFilePath, req.file.buffer);
 
@@ -34,7 +34,7 @@ const uploadPicture = (req, res) => {
     // save information to the database
     const uploadNewPicture = new Picture({
       userId: "1a",
-      fileName: req.file.originalName,
+      fileName: req.file.originalname,
       path: result.secure_url, // cloudinary url path
       cloudinaryPublicId: result.public_id, // cloudinary id
     });
