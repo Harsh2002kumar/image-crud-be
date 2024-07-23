@@ -13,7 +13,7 @@ const PORT = 9000;
 // Connect to mongodb
 mongoose
   .connect(
-    "mongodb+srv://hkumar05022002:harsh2004@cluster0.f4snkvx.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0",
+    "mongodb+srv://hkumar05022002:Fv8JwClso658uA9k@cluster1.mut3ts4.mongodb.net/?retryWrites=true&w=majority&appName=Cluster1",
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
